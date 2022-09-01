@@ -13,7 +13,8 @@ cart.addEventListener('click',() =>{
 const countCart= (event) =>{
   count++
   const produCt = event.target.parentNode.parentNode.children[1].innerText
-
+  const price = event.target.parentNode.parentNode.children[3].children[0].children[0].innerText
+console.log(price)
 
 
   const modalDiv = document.getElementById('cartMenu')
@@ -22,7 +23,7 @@ const countCart= (event) =>{
   <div class="card-body">
 
   <table class="table table-striped">
-  <th>${produCt.length > 20 ? produCt.slice(0,20) + '...' : produCt}</th>
+  <p>${produCt.length > 20 ? produCt.slice(0,20) + '...' : produCt}</p>
 </table>
                              
  
@@ -155,7 +156,7 @@ const ProcessData = async ()=>{
                    <div> <span class="text-danger fw-bold"> Rating:${rate} (${count})</span></div>
                 </div>
                 <div class="price-buy d-flex justify-content-between align-items-center mt-3 h-25">
-                    <h2 class="price-tag text-primary fw-bold m-0">${price} $</h2>
+                    <h2 class="price-tag text-primary fw-bold m-0"><span>${price}</span> $</h2>
                  
                 </div>
                 <div class="d-flex justify-content-between my-3">
