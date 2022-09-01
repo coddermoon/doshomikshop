@@ -1,5 +1,7 @@
 // dependencies
 
+const arr = [];
+
 const cetagoryArr = []
 let count = 0
 
@@ -11,26 +13,31 @@ cart.addEventListener('click',() =>{
 
 // function
 const countCart= (event) =>{
+
+  
+
   count++
   const produCt = event.target.parentNode.parentNode.children[1].innerText
   const price = event.target.parentNode.parentNode.children[3].children[0].children[0].innerText
 console.log(price)
 
 
-  const modalDiv = document.getElementById('cartMenu')
-  const cartItems =  document.createElement('div')
-  cartItems.innerHTML = `
-  <div class="card-body">
-
-  <table class="table table-striped">
-  <p>${produCt.length > 20 ? produCt.slice(0,20) + '...' : produCt}</p>
-</table>
-                             
- 
- 
-</div>
+  const tbody = document.getElementById('tbody')
+  console.log(tbody)
+  const tr =  document.createElement('tr')
+  tr.innerHTML = `
+  <th scope="row">${count}</th>
+  <td>${produCt.length>10? produCt.slice(0,10): produCt}</td>
+  <td>${price}</td>
   `
-modalDiv.appendChild(cartItems)
+const newProduct = {
+  produCt,
+  price
+}
+arr.push(newProduct)
+console.log(arr)
+
+tbody.appendChild(tr)
 
 
   
