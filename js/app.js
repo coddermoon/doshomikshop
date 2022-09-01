@@ -1,12 +1,20 @@
 // dependencies
 
 const cetagoryArr = []
-
+let count = 0
 
 
 
 // function
+const countCart= () =>{
 
+  count++
+
+const cartValue= document.getElementById('shopping-cart')
+cartValue.innerText=count
+showMassage('successfully added', 'added')
+
+}
 
 
 
@@ -54,8 +62,9 @@ const showModal = (description)=>{
    <p>description : ${description}</p>
    </div>
    <div class="modal-footer">
+  
      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-     <button type="button" class="btn btn-primary">Save changes</button>
+   
    </div>
  </div>
 
@@ -117,7 +126,11 @@ const ProcessData = async ()=>{
                 </div>
                 <div class="price-buy d-flex justify-content-between align-items-center mt-3 h-25">
                     <h2 class="price-tag text-primary fw-bold m-0">${price} $</h2>
-                    <button data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-primary fw-bold" onclick="showModal('${description}')">Add to Cart</button>
+                 
+                </div>
+                <div class="d-flex justify-content-between my-3">
+                <button data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-primary fw-bold" onclick="showModal('${description}')">details</button>
+                <button type="button" class="btn fw-bold btn-primary" onclick="countCart()">Add to Cart</button>
                 </div>
             </div>
         </div>
@@ -133,3 +146,27 @@ const ProcessData = async ()=>{
 
 
 ProcessData()
+
+
+// massage
+const showMassage = (text, status) => {
+  const div = document.createElement('div');
+
+  div.className = `toast-message toast-message-slide-in bg-${status}`;
+  div.innerText = text;
+  document.body.appendChild(div)
+
+
+  setTimeout(() => {
+    div.classList.remove('toast-message-slide-in');
+    div.classList.add('toast-message-slide-out');
+     
+  }, 2000)
+
+  setTimeout(() => {
+    div.remove();
+     
+  }, 2400)
+
+  
+}
