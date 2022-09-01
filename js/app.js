@@ -85,8 +85,9 @@ const ProcessData = async ()=>{
       
         
         const {title, price,category,image,description,rating}= product
+        
 
-        const {count} = rating
+        const {count,rate} = rating
 
         
           
@@ -116,13 +117,15 @@ const ProcessData = async ()=>{
             <div class="text-start">
                 <p class="category text-muted mb-0"><small>${category}</small></p>
                 <p class="text-capitalize my-1 product-tile fw-bold">${title.length > 20 ? title.slice(0,35) + '...' : title}</p>
-                <div class="rating mt-0">
-                    <span class="text-primary"><i class="fas fa-star star" aria-hidden="true"></i></span>
-                    <span class="text-primary"><i class="fas fa-star star" aria-hidden="true"></i></span>
-                    <span class="text-primary"><i class="fas fa-star star" aria-hidden="true"></i></span>
-                    <span class="text-muted"><i class="fas fa-star star" aria-hidden="true"></i></span>
-                    <span class="text-muted"><i class="fas fa-star star" aria-hidden="true"></i></span>
-                    <span class="text-danger fw-bold">(${count})</span>
+                <div class="rating mt-0 d-flex justify-content-between">
+                   <div>
+                   <span class="text-primary"><i class="fas fa-star star" aria-hidden="true"></i></span>
+                   <span class="text-primary"><i class="fas fa-star star" aria-hidden="true"></i></span>
+                   <span class="text-primary"><i class="fas fa-star star" aria-hidden="true"></i></span>
+                   <span class="text-muted"><i class="fas fa-star star" aria-hidden="true"></i></span>
+                   <span class="text-muted"><i class="fas fa-star star" aria-hidden="true"></i></span>
+                   </div>
+                   <div> <span class="text-danger fw-bold"> Rating:${rate} (${count})</span></div>
                 </div>
                 <div class="price-buy d-flex justify-content-between align-items-center mt-3 h-25">
                     <h2 class="price-tag text-primary fw-bold m-0">${price} $</h2>
