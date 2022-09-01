@@ -3,12 +3,39 @@
 const cetagoryArr = []
 let count = 0
 
+const cart = document.getElementById('cart')
+cart.addEventListener('click',() =>{
+  document.getElementById('cartMenu').classList.toggle('d-none')
+})
 
 
 // function
-const countCart= () =>{
-
+const countCart= (event) =>{
   count++
+  const produCt = event.target.parentNode.parentNode.children[1].innerText
+
+
+
+  const modalDiv = document.getElementById('cartMenu')
+  const cartItems =  document.createElement('div')
+  cartItems.innerHTML = `
+  <div class="card-body">
+
+  <table class="table table-striped">
+  <th>${produCt.length > 20 ? produCt.slice(0,20) + '...' : produCt}</th>
+</table>
+                             
+ 
+ 
+</div>
+  `
+modalDiv.appendChild(cartItems)
+
+
+  
+ 
+
+
 
 const cartValue= document.getElementById('shopping-cart')
 cartValue.innerText=count
@@ -116,7 +143,7 @@ const ProcessData = async ()=>{
 
             <div class="text-start">
                 <p class="category text-muted mb-0"><small>${category}</small></p>
-                <p class="text-capitalize my-1 product-tile fw-bold">${title.length > 20 ? title.slice(0,35) + '...' : title}</p>
+                <p class="text-capitalize my-1 product-tile fw-bold">${title.length > 35 ? title.slice(0,35) + '...' : title}</p>
                 <div class="rating mt-0 d-flex justify-content-between">
                    <div>
                    <span class="text-primary"><i class="fas fa-star star" aria-hidden="true"></i></span>
@@ -133,7 +160,7 @@ const ProcessData = async ()=>{
                 </div>
                 <div class="d-flex justify-content-between my-3">
                 <button data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-primary fw-bold" onclick="showModal('${description}')">details</button>
-                <button type="button" class="btn fw-bold btn-primary" onclick="countCart()">Add to Cart</button>
+                <button type="button" class="btn fw-bold btn-primary" onclick="countCart(event)">Add to Cart</button>
                 </div>
             </div>
         </div>

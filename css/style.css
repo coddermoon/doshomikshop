@@ -66,3 +66,12 @@ toast massage
 		opacity: 0;
 	}
 }
+
+#cartMenu {
+    position: absolute;
+    top: 40px;
+    left: -16px;
+    z-index: 999;
+    box-shadow: 2px 2px 40px #333;
+    
+}
