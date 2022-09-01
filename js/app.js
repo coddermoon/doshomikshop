@@ -19,7 +19,7 @@ const countCart= (event) =>{
   count++
   const produCt = event.target.parentNode.parentNode.children[1].innerText
   const price = event.target.parentNode.parentNode.children[3].children[0].children[0].innerText
-console.log(price)
+
 
 
   const tbody = document.getElementById('tbody')
@@ -35,7 +35,7 @@ const newProduct = {
   price
 }
 arr.push(newProduct)
-console.log(arr)
+
 
 tbody.appendChild(tr)
 
