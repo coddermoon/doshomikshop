@@ -2,6 +2,18 @@
 
 const arr = [];
 
+const priceAdded = ()=>{
+  const initialValue = 0;
+  const sum = arr.reduce(
+    (previousValue, currentValue) => previousValue + currentValue,
+    initialValue
+  );
+  
+  document.getElementById('total').innerText=sum.toFixed(2)
+}
+
+
+
 const cetagoryArr = []
 let count = 0
 
@@ -18,23 +30,20 @@ const countCart= (event) =>{
 
   count++
   const produCt = event.target.parentNode.parentNode.children[1].innerText
-  const price = event.target.parentNode.parentNode.children[3].children[0].children[0].innerText
-
+  const priceText = event.target.parentNode.parentNode.children[3].children[0].children[0].innerText
+const price = parseFloat(priceText)
 
 
   const tbody = document.getElementById('tbody')
-  console.log(tbody)
+ 
   const tr =  document.createElement('tr')
   tr.innerHTML = `
   <th scope="row">${count}</th>
   <td>${produCt.length>10? produCt.slice(0,10): produCt}</td>
   <td>${price}</td>
   `
-const newProduct = {
-  produCt,
-  price
-}
-arr.push(newProduct)
+
+arr.push(price)
 
 
 tbody.appendChild(tr)
@@ -42,7 +51,7 @@ tbody.appendChild(tr)
 
   
  
-
+priceAdded()
 
 
 const cartValue= document.getElementById('shopping-cart')
